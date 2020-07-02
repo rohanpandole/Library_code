@@ -238,6 +238,28 @@ public class TestClass
 			
 			break;
 //***********************************************************************************************************************
+
+		case 5:
+			Scanner scan55=new Scanner(System.in);
+			Connection con55=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+			String s55="select b_name,b_issue,count(*) from book111 group by b_name,b_issue  having b_issue=?";
+			PreparedStatement ps55=con55.prepareStatement(s55);
+			System.out.println("\n enter date to find issued book more time in single day");
+			int get1=scan55.nextInt();
+			ps55.setInt(1, get1);
+			//ps55.executeUpdate();
+			
+			
+			//Statement st55=con55.createStatement();
+			
+			ResultSet rs55=ps55.executeQuery();
+			System.out.println("\n b_name \t b_issue\t count(*)");
+			while(rs55.next())
+			{
+				System.out.println(rs55.getString("b_name")+"\t    "+rs55.getDate("b_issue")+"\t    "+rs55.getInt("count(*)"));
+			}
+			con55.close();
+			break;
 		default:
 			System.out.println(" wrong choice");
 			break;
