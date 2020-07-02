@@ -71,6 +71,173 @@ public class TestClass
 			}
 			con3.close();
 			break;
+
+//*******************************************************************************************************************
+
+			
+		case 4:
+			
+			Scanner scan4=new Scanner(System.in);
+			
+			System.out.println("\n enter chioce of book");
+			System.out.println(" 1: os  2: database  3: tom   4: som  5: java  6: digital  7: big data  8: construction  9: hydrology  10: structures  11:  tunnel engineering " );
+			int choice4=scan4.nextInt();
+			try
+			{
+			switch(choice4)
+			{
+			case 1:
+			 String s4="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='os' group by D.b_name,b_quantity";
+			 Connection con4=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+				Statement st4=con4.createStatement();
+				ResultSet rs4=st4.executeQuery(s4);
+				while(rs4.next())
+				{	System.out.println("available os book quantity ");
+					System.out.println(rs4.getInt("diff"));
+				}
+				con4.close();
+			break;
+			
+			case 2:
+			
+				String s41="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='database' group by D.b_name,b_quantity";
+				 Connection con41=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st41=con41.createStatement();
+					ResultSet rs41=st41.executeQuery(s41);
+					while(rs41.next())
+					{	System.out.println("available database book quantity ");
+						System.out.println(rs41.getInt("diff"));
+					}
+					con41.close();
+				
+			break;
+			
+			
+			
+			case 3:
+				
+				String s42="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='tom' group by D.b_name,b_quantity";
+				 Connection con42=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st42=con42.createStatement();
+					ResultSet rs42=st42.executeQuery(s42);
+					while(rs42.next())
+					{	System.out.println("available tom book quantity ");
+						System.out.println(rs42.getInt("diff"));
+					}
+					con42.close();
+				
+			break;
+			
+			
+			case 4:
+				
+				String s43="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='som' group by D.b_name,b_quantity";
+				 Connection con43=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st43=con43.createStatement();
+					ResultSet rs43=st43.executeQuery(s43);
+					while(rs43.next())
+					{	System.out.println("available som book quantity ");
+						System.out.println(rs43.getInt("diff"));
+					}
+					con43.close();
+				
+			break;
+			
+			
+			case 5:
+				
+				String s44="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='java' group by D.b_name,b_quantity";
+				 Connection con44=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st44=con44.createStatement();
+					ResultSet rs44=st44.executeQuery(s44);
+					while(rs44.next())
+					{	System.out.println("available java book quantity ");
+						System.out.println(rs44.getInt("diff"));
+					}
+					con44.close();
+				
+			break;
+			
+			case 6:
+				
+				String s45="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='digital' group by D.b_name,b_quantity";
+				 Connection con45=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st45=con45.createStatement();
+					ResultSet rs45=st45.executeQuery(s45);
+					while(rs45.next())
+					{	System.out.println("available digital book quantity ");
+						System.out.println(rs45.getInt("diff"));
+					}
+					con45.close();
+				
+			case 7:
+				
+				String s46="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='big data' group by D.b_name,b_quantity";
+				 Connection con46=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st46=con46.createStatement();
+					ResultSet rs46=st46.executeQuery(s46);
+					while(rs46.next())
+					{	System.out.println("available big data book quantity ");
+						System.out.println(rs46.getInt("diff"));
+					}
+					con46.close();
+				
+			case 8:
+				
+				String s47="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='constructures' group by D.b_name,b_quantity";
+				 Connection con47=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st47=con47.createStatement();
+					ResultSet rs47=st47.executeQuery(s47);
+					while(rs47.next())
+					{	System.out.println("available constructure book quantity ");
+						System.out.println(rs47.getInt("diff"));
+					}
+					con47.close();
+					
+			case 9:
+				
+				String s48="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='hydrology' group by D.b_name,b_quantity";
+				 Connection con48=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st48=con48.createStatement();
+					ResultSet rs48=st48.executeQuery(s48);
+					while(rs48.next())
+					{	System.out.println("available hydrology book quantity ");
+						System.out.println(rs48.getInt("diff"));
+					}
+					con48.close();
+					
+			case 10:
+				
+				String s49="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='structures' group by D.b_name,b_quantity";
+				 Connection con49=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st49=con49.createStatement();
+					ResultSet rs49=st49.executeQuery(s49);
+					while(rs49.next())
+					{	System.out.println("available structures book quantity ");
+						System.out.println(rs49.getInt("diff"));
+					}
+					con49.close();
+					
+			case 11:
+				
+				String s410="select a.b_quantity - count(D.b_name)as diff from book111 D join book11 a on D.b_name=a.b_name where D.b_name='tunnel engineering' group by D.b_name,b_quantity";
+				 Connection con410=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+					Statement st410=con410.createStatement();
+					ResultSet rs410=st410.executeQuery(s410);
+					while(rs410.next())
+					{	System.out.println("available tunnel engineering book quantity ");
+						System.out.println(rs410.getInt("diff"));
+					}
+					con410.close();
+			break;
+			}
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			break;
+//***********************************************************************************************************************
 		default:
 			System.out.println(" wrong choice");
 			break;
