@@ -260,6 +260,86 @@ public class TestClass
 			}
 			con55.close();
 			break;
+//*********************************************************************************************************************
+
+ case 6:
+			
+			Connection con66=DriverManager.getConnection("jdbc:mysql://localhost/student", "root", "hr");
+			Statement st66=con66.createStatement();
+			String s66="select b_name,count(b_issue) from book_issue_data where b_issue is not null AND b_return is null group by b_name";  ///need changes
+			ResultSet rs66=st66.executeQuery(s66);
+			while(rs66.next())
+			{
+				System.out.println(rs66.getString("b_name"));
+			}
+			con66.close();
+			break;	
+
+//*****************************************************************************************************************
+
+		case 7:
+			Connection con7=DriverManager.getConnection("jdbc:mysql://localhost/student?zeroDateTimeBehavior=convertToNull", "root", "hr");
+
+			Statement st7=con7.createStatement();
+			String s7="select * from book111";
+			ResultSet rs7=st7.executeQuery(s7);
+
+			System.out.println("sr_no \t stud_id \t"+"b_name \t"+"b_issue \t"+"b_return");
+
+			while(rs7.next())
+			{	
+				System.out.println(rs7.getInt("sr_no")+"\t"+rs7.getInt("stud_id")+"\t"+rs7.getString("b_name")+"\t"+rs7.getDate("b_issue")+"\t"+rs7.getDate("b_return"));
+			}
+
+			System.out.println("update all record via consol");
+
+			String s77="update book111 set b_name=?,b_issue=?,b_return=?,stud_id=? where sr_no=?";
+
+			PreparedStatement ps=con7.prepareStatement(s77);
+			
+			Scanner scan1=new Scanner(System.in);
+			
+			
+			System.out.println("\n enter book name");
+			String r71=scan1.nextLine();
+			
+			System.out.println("\n enter book issued date");
+			int r72=scan1.nextInt();
+			
+			System.out.println("\n enter book return date");
+			int r73=scan1.nextInt();
+			
+			System.out.println("\n enter student id ");
+			int r74=scan1.nextInt();
+			
+			System.out.println("\n enter sr_no to update");
+			int r75=scan1.nextInt();
+			
+			
+			ps.setString(1,r71);
+			ps.setInt(2,r72);
+			ps.setInt(3,r73);
+			ps.setInt(4, r74);
+			ps.setInt(5, r75);
+			
+			ps.executeUpdate();//for update execution
+		 
+			Statement st777=con7.createStatement();
+
+			String s777="select * from book111";
+
+			ResultSet rs777=st777.executeQuery(s777);
+
+			System.out.println("sr_no \t stud_id \t b_name \t b_issue \t b_return");
+
+			while(rs777.next())
+			{	
+				System.out.println(rs777.getInt("sr_no")+"\t"+rs777.getInt("stud_id")+"\t"+rs777.getString("b_name")+"\t"+rs777.getDate("b_issue")+"\t"+rs777.getDate("b_return"));
+			}			
+		
+			
+			con7.close();
+			break;
 		default:
 			System.out.println(" wrong choice");
 			break;
