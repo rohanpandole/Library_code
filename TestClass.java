@@ -344,6 +344,46 @@ public class TestClass
 			System.out.println(" wrong choice");
 			break;
 		}
+//*******************************************************************************************************************
+
+		case 8:
+			
+			Connection con8=DriverManager.getConnection("jdbc:mysql://localhost/student?zeroDateTimeBehavior=convertToNull", "root", "hr");
+			String s8="insert into book111 values(?,?,?,?,?)";
+			
+			PreparedStatement ps8=con8.prepareStatement(s8);
+			Scanner scan8=new Scanner(System.in);
+			
+			System.out.println("\n enter sr_no as a 0");
+			int s18=scan8.nextInt();
+			System.out.println("\n enter student id");
+			int s28=scan8.nextInt();
+			System.out.println("\n enter book name");
+			String s38=scan.next();
+			System.out.println("\n enter book issue date");
+			int s48=scan8.nextInt();
+			System.out.println("\n enter book return date");
+			int s58=scan.nextInt();
+			
+			ps8.setInt(1, s18);
+			ps8.setInt(2,s28);
+			ps8.setString(3, s38);
+			ps8.setInt(4, s48);
+			ps8.setInt(5, s58);
+			
+			ps8.executeUpdate();
+			
+			String s88="select * from book111";
+			ResultSet rs8=ps8.executeQuery(s88);
+			System.out.println("sr_no \t stud_id \t b_name \t b_issued \t b_return	");
+			while(rs8.next())
+			{
+				System.out.println(rs8.getInt("sr_no")+"\t"+rs8.getInt("stud_id")+"\t"+rs8.getString("b_name")+"\t"+rs8.getDate("b_issue")+"\t"+rs8.getDate("b_return"));
+			}
+			con8.close();
+			break;
+			
+
 		
 	}catch(Exception e)
 	{
