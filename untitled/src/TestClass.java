@@ -26,7 +26,8 @@ public class TestClass
 		int choice=scan.nextInt();
 		switch (choice) {
 			case 1:
-				Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 				String s1 = "select b_name,b_issue,b_return from book_issue_data";
 				Statement st1 = con1.createStatement();
 				ResultSet rs1 = st1.executeQuery(s1);
@@ -40,8 +41,8 @@ public class TestClass
 //*****************************************************************************************************************
 
 			case 2:
-
-				Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 				String s2 = "select stud_id,b_name from book_issue_data";
 				Statement st2 = con2.createStatement();
 				ResultSet rs2 = st2.executeQuery(s2);
@@ -55,13 +56,15 @@ public class TestClass
 //*****************************************************************************************************************
 
 			case 3:
-				Connection con3 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 				String s3 = "select * from book_quantity";
 				Statement st3 = con3.createStatement();
 				ResultSet rs3 = st3.executeQuery(s3);
-				System.out.println("b_name \t b_quantity");
+
+				System.out.println("\n-----------------------------------------\nb_name ----------- b_quantity \n-----------------------------------------\n");
 				while (rs3.next()) {
-					System.out.println(rs3.getString("b_name") + "\t" + rs3.getInt("b_quantity"));
+					System.out.println(rs3.getString("b_name") + "----------" + rs3.getInt("b_quantity"));
 				}
 				con3.close();
 				break;
@@ -80,7 +83,8 @@ public class TestClass
 					switch (choice4) {
 						case 1:
 							String s4 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='os' group by D.b_name,b_quantity";
-							Connection con4 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con4 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st4 = con4.createStatement();
 							ResultSet rs4 = st4.executeQuery(s4);
 							while (rs4.next()) {
@@ -93,7 +97,8 @@ public class TestClass
 						case 2:
 
 							String s41 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='database' group by D.b_name,b_quantity";
-							Connection con41 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con41 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st41 = con41.createStatement();
 							ResultSet rs41 = st41.executeQuery(s41);
 							while (rs41.next()) {
@@ -109,7 +114,8 @@ public class TestClass
 						case 3:
 
 							String s42 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='tom' group by D.b_name,b_quantity";
-							Connection con42 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con42 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st42 = con42.createStatement();
 							ResultSet rs42 = st42.executeQuery(s42);
 							while (rs42.next()) {
@@ -124,7 +130,8 @@ public class TestClass
 						case 4:
 
 							String s43 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='som' group by D.b_name,b_quantity";
-							Connection con43 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con43 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st43 = con43.createStatement();
 							ResultSet rs43 = st43.executeQuery(s43);
 							while (rs43.next()) {
@@ -139,7 +146,8 @@ public class TestClass
 						case 5:
 
 							String s44 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='java' group by D.b_name,b_quantity";
-							Connection con44 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con44 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st44 = con44.createStatement();
 							ResultSet rs44 = st44.executeQuery(s44);
 							while (rs44.next()) {
@@ -153,7 +161,8 @@ public class TestClass
 						case 6:
 
 							String s45 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='digital' group by D.b_name,b_quantity";
-							Connection con45 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con45 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st45 = con45.createStatement();
 							ResultSet rs45 = st45.executeQuery(s45);
 							while (rs45.next()) {
@@ -165,7 +174,8 @@ public class TestClass
 						case 7:
 
 							String s46 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='big data' group by D.b_name,b_quantity";
-							Connection con46 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con46 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st46 = con46.createStatement();
 							ResultSet rs46 = st46.executeQuery(s46);
 							while (rs46.next()) {
@@ -177,7 +187,8 @@ public class TestClass
 						case 8:
 
 							String s47 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='constructures' group by D.b_name,b_quantity";
-							Connection con47 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con47 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st47 = con47.createStatement();
 							ResultSet rs47 = st47.executeQuery(s47);
 							while (rs47.next()) {
@@ -189,7 +200,8 @@ public class TestClass
 						case 9:
 
 							String s48 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='hydrology' group by D.b_name,b_quantity";
-							Connection con48 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con48 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st48 = con48.createStatement();
 							ResultSet rs48 = st48.executeQuery(s48);
 							while (rs48.next()) {
@@ -201,7 +213,8 @@ public class TestClass
 						case 10:
 
 							String s49 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='structures' group by D.b_name,b_quantity";
-							Connection con49 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con49 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st49 = con49.createStatement();
 							ResultSet rs49 = st49.executeQuery(s49);
 							while (rs49.next()) {
@@ -213,7 +226,8 @@ public class TestClass
 						case 11:
 
 							String s410 = "select a.b_quantity - count(D.b_name)as diff from book_issue_data D join book_quantity a on D.b_name=a.b_name where D.b_name='tunnel engineering' group by D.b_name,b_quantity";
-							Connection con410 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con410 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 							Statement st410 = con410.createStatement();
 							ResultSet rs410 = st410.executeQuery(s410);
 							while (rs410.next()) {
@@ -232,7 +246,8 @@ public class TestClass
 
 			case 5:
 				Scanner scan55 = new Scanner(System.in);
-				Connection con55 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con55 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 				String s55 = "select b_name,b_issue,count(*) from book_issue_data group by b_name,b_issue  having b_issue=?";
 				PreparedStatement ps55 = con55.prepareStatement(s55);
 				System.out.println("\n enter date to find issued book more time in single day");
@@ -253,13 +268,13 @@ public class TestClass
 //*********************************************************************************************************************
 
 			case 6:
-
-				Connection con66 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con66 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 				Statement st66 = con66.createStatement();
-				String s66 = "select b_name,count(b_issue) from book_issue_data where b_issue is not null AND b_return is null group by b_name";  ///need changes
+				String s66 = "select b_name,count(b_issue)as count from book_issue_data where b_issue is not null AND b_return is null group by b_name";  ///need changes
 				ResultSet rs66 = st66.executeQuery(s66);
 				while (rs66.next()) {
-					System.out.println(rs66.getString("b_name"));
+					System.out.println(rs66.getString("b_name")+"---------"+rs66.getInt("count"));
 				}
 				con66.close();
 				break;
@@ -267,7 +282,8 @@ public class TestClass
 //*****************************************************************************************************************
 
 			case 7:
-				Connection con7 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con7 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 
 				Statement st7 = con7.createStatement();
 				String s7 = "select * from book_issue_data";
@@ -334,8 +350,8 @@ public class TestClass
 //*******************************************************************************************************************
 
 			case 8:
-
-				Connection con8 = DriverManager.getConnection("jdbc:mysql://localhost/JDBC_mini_project?zeroDateTimeBehavior=convertToNull", "root", "");
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con8 = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_mini_project", "root", "");
 				String s8 = "insert into book_issue_data values(?,?,?,?,?)";
 
 				PreparedStatement ps8 = con8.prepareStatement(s8);
@@ -382,7 +398,7 @@ public class TestClass
 
 +----------------------------------+
 | Tables_in_JDBC_project_newBranch |
-+----------------------------------+
++----------------------------------+java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
 | tbl_book                         |
 | tbl_book_issue_return            |
 | tbl_log                          |
