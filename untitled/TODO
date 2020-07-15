@@ -1,0 +1,1 @@
+CREATE TABLE tbl_log (sr_no int(3) NOT NULL AUTO_INCREMENT,s_id int(3) NOT NULL,b_id int(11) NOT NULL,b_name varchar(20) DEFAULT NULL,b_dept varchar(20) DEFAULT NULL,b_isse_date date DEFAULT NULL,b_return_date date DEFAULT NULL,b_author varchar(20) DEFAULT NULL,PRIMARY KEY (sr_no);
